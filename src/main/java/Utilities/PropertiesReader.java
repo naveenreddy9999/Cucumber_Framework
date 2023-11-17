@@ -1,34 +1,24 @@
 package Utilities;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
 import java.util.Properties;
 
 public class PropertiesReader {
 
-    private static PropertiesReader propertiesReader = null;
-    private PropertiesReader(){}
-    public static PropertiesReader getInstance(){
-        if(propertiesReader == null){
-            propertiesReader = new PropertiesReader();
-        }
-        return propertiesReader;
-    }
     Properties properties;
-    public static final String PROPERTIES_PATH = "./src/main/resources/EnvironmentProperties/Configuration.properties";
-    public Properties loadProperties() {
+    public PropertiesReader(String path) {
         try {
             properties = new Properties();
-            File file = new File(PROPERTIES_PATH);
-            FileInputStream fileInputStream = new FileInputStream(file);
-            properties.load(fileInputStream);
+            InputStream inputStream = PropertiesReader.class.getResourceAsStream("/"+path+".properties");
+            assert inputStream != null;
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+            properties.load(reader);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return properties;
     }
 
-    public  String getPropertyValue(String key){
-       return loadProperties().getProperty(key);
+    public String getPropertyValue(String key) {
+        return properties.getProperty(key);
     }
 }

@@ -1,0 +1,76 @@
+passColor: 008000
+failColor: ff4500
+skipColor: a89132
+displayTag: true
+displayFeature: true
+displayScenario: true
+displayDetailed: true
+displayAttached: true
+displayExpanded: false
+
+dashboardConfig:
+  title: Naveen Reports
+  dataBackgroundColor: 4F0CC8
+  titleColor: 4169e1
+  dateColor: FF0000
+  timeColor: FF0000
+  dial:
+    featureRanges: 30 65
+    scenarioRanges: 30 60
+    stepRanges: 35 65
+    badColor: d13544
+    averageColor: 93ffff
+    goodColor: 39ff14
+
+summaryConfig:
+  totalColor: FF0000
+  durationColor: FF0000
+
+tagConfig:
+  totalColor: FF0000
+
+featureConfig:
+  totalColor: FF0000
+  durationColor: FF0000
+
+scenarioConfig:
+  totalColor: FF0000
+  durationColor: FF0000
+
+detailedFeatureConfig:
+  featureNameColor: FF0000
+  startEndTimeColor: 000000
+  tagColor: 404040
+  dataHeaderColor: FFFFFF
+  dataBackgroundColor: 404040
+  totalColor: 0000FF
+  durationColor: FFFFFF
+  durationBackgroundColor: 404040
+
+detailedScenarioConfig:
+  featureNameColor: 404040
+  scenarioNameColor: FF0000
+  startEndTimeColor: 000000
+  tagColor: 404040
+  dataHeaderColor: FFFFFF
+  dataBackgroundColor: 404040
+  totalColor: 0000FF
+  durationColor: FFFFFF
+  durationBackgroundColor: 404040
+  stepChartBarColor: 7f32a8
+
+detailedStepHookConfig:
+  stepTextColor: ffff00
+  stepBackgroundColor: 1a1110
+  hookTextColor: 32174d
+  hookBackgroundColor: ffdab9
+  durationColor: 39ff14
+  errorMsgColor: d13544
+  logMsgColor: 041690
+  skipHooks: false
+  skipScenarioHooks: false
+  skipStepHooks: false
+  skipScenarioBeforeHooks: false
+  skipScenarioAfterHooks: false
+  skipStepBeforeHooks: false
+  skipStepAfterHooks: false
