@@ -10,11 +10,11 @@ import org.testng.annotations.DataProvider;
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         dryRun = false,
         monochrome = true,
-        tags = "@LogIn"
+        tags = "@HomePage"
 )
 public class TestNgTestRunner extends AbstractTestNGCucumberTests {
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
     }

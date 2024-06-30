@@ -1,6 +1,7 @@
 package Utilities;
 
 import java.io.*;
+import java.util.Objects;
 import java.util.Properties;
 
 public class PropertiesReader {
@@ -19,6 +20,6 @@ public class PropertiesReader {
     }
 
     public String getPropertyValue(String key) {
-        return properties.getProperty(key);
+        return Objects.requireNonNull(properties.getProperty(key));
     }
 }

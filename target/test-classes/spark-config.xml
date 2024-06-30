@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <theme>dark</theme>
+        <encoding>UTF-8</encoding>
+        <protocol>https</protocol>
+        <documentTitle>Naveen Reports</documentTitle>
+        <reportName>
+            <![CDATA[
+            <img loading="lazy" src="https://prod.ucwe.capgemini.com/in-en/wp-content/themes/capgemini2020/assets/images/logo-white.svg"
+             width="60" background-color="red" height="20" style="float:middle";
+        ]]>
+        </reportName>
+        <scripts>
+            <![CDATA[$(document).ready(function() {});]]>
+        </scripts>
+        <styles>
+            <![CDATA[
+            .report-name { padding-left: 10px; } .report-name > img { float:
+      left;height: 90%;margin-left: 30px;margin-top: 2px;width: auto; }
+        ]]>
+        </styles>
+    </configuration>
+</extentreports>
