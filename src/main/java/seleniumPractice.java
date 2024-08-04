@@ -18,16 +18,16 @@ public class seleniumPractice {
     public static void main(String[] args) {
 
         String k = "hello naveen";
-       char[] chars = k.toCharArray();
-       for(int i=chars.length-1;i>=0;i--){
-           System.out.print(chars[i]);
-       }
+        char[] chars = k.toCharArray();
+        for (int i = chars.length - 1; i >= 0; i--) {
+            System.out.print(chars[i]);
+        }
 
     }
 
     @Test
     public void allMethods() throws IOException {
-        System.setProperty("webdriver.chrome.driver","");
+        System.setProperty("webdriver.chrome.driver", "");
 
         ChromeOptions options = new ChromeOptions();
 
@@ -37,7 +37,7 @@ public class seleniumPractice {
         driver.close();
         driver.quit();
 
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofMinutes(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(20));
 
         wait.until(ExpectedConditions.alertIsPresent());
 
@@ -51,59 +51,71 @@ public class seleniumPractice {
 
         wait.until(ExpectedConditions.elementToBeClickable(webElementList.get(0)));
 
-        wait.until(ExpectedConditions.attributeContains(webElementList.get(0),"name","naveen"));
+        wait.until(ExpectedConditions.attributeContains(webElementList.get(0), "name", "naveen"));
 
         FluentWait<WebDriver> fluentWait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(2))
                 .ignoring(NoSuchElementException.class);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 
-        driver.switchTo().newWindow(WindowType.TAB);
 
+
+
+        // frames handle
         driver.switchTo().frame("");
+        driver.switchTo().frame(1);
+        WebElement element = driver.findElement(By.xpath(""));
+        driver.switchTo().frame(element);
         driver.switchTo().defaultContent();
         driver.switchTo().parentFrame();
+        driver.switchTo().activeElement();
         driver.switchTo().window("");
 
         Set<String> stringSet = driver.getWindowHandles();
         String parentWindow = driver.getWindowHandle();
-        for (String windows : stringSet){
-            if(!parentWindow.equals(windows)){
+        for (String windows : stringSet) {
+            if (!parentWindow.equals(windows)) {
                 driver.switchTo().window(windows);
-
                 // perform
-
                 driver.close();
-
                 break;
             }
         }
 
         driver.switchTo().window(parentWindow);
 
+        //windows handles
+        driver.switchTo().newWindow(WindowType.TAB);
+        driver.switchTo().newWindow(WindowType.WINDOW);
+
         File takesScreenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(takesScreenshot, new File(".png"));
 
-        FileUtils.copyFile(takesScreenshot,new File(".png"));
-
+        //alert
         driver.switchTo().alert().dismiss();
         driver.switchTo().alert().accept();
         driver.switchTo().alert().getText();
         driver.switchTo().alert().sendKeys("");
 
+        //main java script methods
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-
-        javascriptExecutor.executeScript("arguments[0].click()",webElementList);
-
-        javascriptExecutor.executeScript("arguments[0].scrollIntoView(true);",webElementList);
-
+        javascriptExecutor.executeScript("arguments[0].click()", webElementList);
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView(true);", webElementList);
         javascriptExecutor.executeScript("window.scrollBy(0,200)");
         javascriptExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         javascriptExecutor.executeScript("window.scrollTo(500,400)");
-
-
-
+        javascriptExecutor. executeScript("arguments[0]. setAttribute('style', 'border:2px solid red; background:yellow')", webElementList);
     }
+
+
+    ///selenium 4
+//    grid updates
+//    protocal Updates
+//    devtools
+//    selenium loggers
+//    relative locators
+//    Selenium manager
+
 }
