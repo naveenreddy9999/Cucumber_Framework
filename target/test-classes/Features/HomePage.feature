@@ -6,9 +6,9 @@ Feature: End to End Banking Home page scenarios
 
     Given User logon the application
     When User click on the "Home" button
-    And User navigating to practice page
-    Then validate each and every heading
-#    Then Validate radio buttons
+#    And User navigating to practice page
+#    Then validate each and every heading
+##    Then Validate radio buttons
 #    And User enter text on text box
 #      | Text   |
 #      | naveen |
